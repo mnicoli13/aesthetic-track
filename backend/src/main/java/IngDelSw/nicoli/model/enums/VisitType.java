@@ -3,24 +3,10 @@
 // --------------------------------------------------------
 
 /************************************************************/
-package IngDelSw.nicoli.model;
-/**
- * 
- */
-public class TreatmentVisit extends Visit{
-	/**
-	 * 
-	 */
+package IngDelSw.nicoli.model.enums;
 
-	/**
-	 *
-	 */
-	public void products() {
-	}
-
-	/**
-	 * GETTERS AND SETTERS
-	 */
-
-
+public enum VisitType {
+	Baseline,
+	Trattamento,
+	Controllo;
 }

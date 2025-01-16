@@ -4,74 +4,121 @@
 
 /************************************************************/
 package IngDelSw.nicoli.model;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import java.time.LocalDate;
+import IngDelSw.nicoli.model.enums.VisitType;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import jakarta.persistence.*;
 
-/**
- *
- */
+import java.time.LocalDate;
+import java.util.Set;
+
+
 @Entity
 @Table(name = "visit")
-public abstract class Visit {
+@JsonIgnoreProperties({"productsVisits"}) // Ignora i campi che potrebbero causare il ciclo infinito
+public class Visit {
+
+	public Visit() {
+	}
+
 	@Id
-	private int id;
-	/**
-	 *
-	 */
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
+
 	@Column(name = "patient_id")
-	private int patient_id;
-	/**
-	 *
-	 */
+	private Integer patientId;
+
 	@Column(name = "treatment_id")
-	private int treatment_id;
-	/**
-	 *
-	 */
+	private Integer treatmentId;
+
 	@Column(name = "medic_id")
-	private int medic_id;
-	/**
-	 *
-	 */
+	private Integer medicId;
+
 	@Column(name = "date")
 	private LocalDate date;
-	/**
-	 *
-	 */
+
+	@Enumerated(EnumType.STRING)
+	@Column(name = "visit_type")
+	private VisitType visitType;
+
 	@Column(name = "localization_id")
-	private int localization_id;
-	/**
-	 *
-	 */
+	private Integer localizationId;
+
 	@Column(name = "notes")
 	private String notes;
-	/**
-	 *
-	 */
-	@Column(name = "visit_id")
-	private int visit_id;
-	/**
-	 *
-	 */
 
-	/**
-	 *
-	 */
+
 	public void treatment() {
 	}
 
-	/**
-	 *
-	 */
 	public void localization() {
 	}
 
-	/**
-	 *
-	 */
+
 	public void photos() {
 	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public Integer getPatientId() {
+		return patientId;
+	}
+
+	public void setPatientId(Integer patientId) {
+		this.patientId = patientId;
+	}
+
+	public Integer getTreatmentId() {
+		return treatmentId;
+	}
+
+	public void setTreatmentId(Integer treatmentId) {
+		this.treatmentId = treatmentId;
+	}
+
+	public Integer getMedicId() {
+		return medicId;
+	}
+
+	public void setMedicId(Integer medicId) {
+		this.medicId = medicId;
+	}
+
+	public LocalDate getDate() {
+		return date;
+	}
+
+	public void setDate(LocalDate date) {
+		this.date = date;
+	}
+
+	public VisitType getVisitType() {
+		return visitType;
+	}
+
+	public void setVisitType(VisitType visitType) {
+		this.visitType = visitType;
+	}
+
+	public Integer getLocalizationId() {
+		return localizationId;
+	}
+
+	public void setLocalizationId(Integer localizationId) {
+		this.localizationId = localizationId;
+	}
+
+	public String getNotes() {
+		return notes;
+	}
+
+	public void setNotes(String notes) {
+		this.notes = notes;
+	}
+
 }

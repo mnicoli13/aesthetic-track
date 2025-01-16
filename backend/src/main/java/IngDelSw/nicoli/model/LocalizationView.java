@@ -5,57 +5,61 @@
 /************************************************************/
 package IngDelSw.nicoli.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import jakarta.persistence.*;
+
+import java.util.Set;
 
 /**
- *
+ * 
  */
 @Entity
 @Table(name = "localization_view")
 public class LocalizationView {
+
+	public LocalizationView() {
+
+	}
+
 	@Id
-	@Column(name = "id")
-	private int id;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
 	/**
-	 *
+	 * 
 	 */
-	@Column(name = "location_id")
-	private int location_id;
+	@Column(name = "localization_id")
+	private Integer localizationId;
 
 	/**
-	 *
+	 * 
 	 */
 	@Column(name = "name")
 	private String name;
 	/**
-	 *
+	 * 
 	 */
-	@Column(name = "order")
-	private int order;
+	@Column(name = "priority")
+	private Integer priority;
 
 
 	/**
-	 *
+	 * 
 	 */
 	public void localizations() {
 	}
 
-	public int getLocation_id() {
-		return location_id;
+	public Integer getLocalizationId() {
+		return localizationId;
 	}
 
-	public void setLocation_id(int location_id) {
-		this.location_id = location_id;
+	public void setLocalizationId(Integer localizationId) {
+		this.localizationId = localizationId;
 	}
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -67,13 +71,12 @@ public class LocalizationView {
 		this.name = name;
 	}
 
-	public int getOrder() {
-		return order;
+	public Integer getPriority() {
+		return priority;
 	}
 
-	public void setOrder(int order) {
-		this.order = order;
+	public void setPriority(Integer order) {
+		this.priority = order;
 	}
-
-
+	
 }

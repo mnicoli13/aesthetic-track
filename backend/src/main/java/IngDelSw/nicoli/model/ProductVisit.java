@@ -5,47 +5,53 @@
 /************************************************************/
 package IngDelSw.nicoli.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import jakarta.persistence.*;
 
 /**
- *
+ * 
  */
 @Entity
 @Table (name = "products_visits")
-public class ProductsVisits {
+public class ProductVisit {
+
 	@Id
-	@Column(name = "id")
-	private int id;
-	/**
-	 *
-	 */
-	@Column(name = "visit_id")
-	private int visit_id;
-	/**
-	 *
-	 */
-	@Column(name = "product_id")
-	private int product_id;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
+
+	@ManyToOne
+	@JoinColumn(name = "visit_id", nullable = false)
+	private Visit visit;
+
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "product_id", nullable = false)
+	@JsonIgnoreProperties("productsVisits") // Ignora la relazione inversa nella serializzazione
+	private Product product;
+
+	public ProductVisit() {
+	}
 
 	/**
 	 * GETTERS AND SETTERS
 	 */
-	public int getVisit_id() {
-		return visit_id;
+
+	public Visit getVisit() {
+		return visit;
 	}
 
-	public void setVisit_id(int visit_id) {
-		this.visit_id = visit_id;
+	public void setVisit(Visit visit) {
+		this.visit = visit;
 	}
 
-	public int getProduct_id() {
-		return product_id;
+	public Product getProduct() {
+		return product;
 	}
 
-	public void setProduct_id(int product_id) {
-		this.product_id = product_id;
+	public void setProduct(Product product) {
+		this.product = product;
 	}
+
+
 }

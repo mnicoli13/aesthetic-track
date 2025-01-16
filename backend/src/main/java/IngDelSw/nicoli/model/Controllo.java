@@ -5,7 +5,7 @@
 /************************************************************/
 package IngDelSw.nicoli.model;
 /**
- *
+ * 
  */
 public class Controllo extends Visit{
 }
