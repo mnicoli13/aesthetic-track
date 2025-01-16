@@ -5,111 +5,85 @@
 /************************************************************/
 package IngDelSw.nicoli.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import jakarta.persistence.*;
 
-/**
- *
- */
+
 
 @Entity
 @Table(name = "treatments")
 public class Treatment {
-	@Id
-	@Column(name = "id")
-	private int id;
-	/**
-	 *
-	 */
-	@Column(name = "patient_id")
-	private int patient_id;
-	/**
-	 *
-	 */
-	@Column(name = "motivation_title")
-	private String motivation_title;
-	/**
-	 *
-	 */
-	@Column(name = "motivation_desc")
-	private String motivation_desc;
-	/**
-	 *
-	 */
-	@Column(name = "localization_id")
-	private int localization_id;
-	/**
-	 *
-	 */
-	@Column(name = "last_visit_id")
-	private int last_visit_id;
-	/**
-	 *
-	 */
-	@Column(name = "treatment_id")
-	private int treatment_id;
-	/**
-	 *
-	 *
 
-	 /**
-	 *
-	 */
+	public Treatment() {
+	}
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
+
+	@Column(name = "patient_id")
+	private Integer patientId;
+
+	@Column(name = "motivation_title")
+	private String motivationTitle;
+
+	@Column(name = "motivation_desc")
+	private String motivationDesc;
+
+	@Column(name = "localization_id")
+	private Integer localizationId;
+
+	@Column(name = "last_visit_id")
+	private Integer last_visit_id;
+
 	public void visits() {
 	}
 
 	/**
 	 * GETTERS AND SETTERS
 	 */
-	public int getPatient_id() {
-		return patient_id;
+
+	public Integer getId() {
+		return id;}
+
+	public void setId(Integer id) {this.id = id;}
+
+	public Integer getPatientId() {
+		return patientId;
 	}
 
-	public void setPatient_id(int patient_id) {
-		this.patient_id = patient_id;
+	public void setPatientId(Integer patient_id) {
+		this.patientId = patient_id;
 	}
 
-	public String getMotivation_title() {
-		return motivation_title;
+	public String getMotivationTitle() {
+		return motivationTitle;
 	}
 
-	public void setMotivation_title(String motivation_title) {
-		this.motivation_title = motivation_title;
+	public void setMotivationTitle(String motivation_title) {
+		this.motivationTitle = motivation_title;
 	}
 
-	public String getMotivation_desc() {
-		return motivation_desc;
+	public String getMotivationDesc() {
+		return motivationDesc;
 	}
 
-	public void setMotivation_desc(String motivation_desc) {
-		this.motivation_desc = motivation_desc;
+	public void setMotivationDesc(String motivation_desc) {
+		this.motivationDesc = motivation_desc;
 	}
 
-	public int getLocalization_id() {
-		return localization_id;
+	public Integer getLocalizationId() {
+		return localizationId;
 	}
 
-	public void setLocalization_id(int localization_id) {
-		this.localization_id = localization_id;
+	public void setLocalizationId(Integer localization_id) {
+		this.localizationId = localization_id;
 	}
 
-	public int getLast_visit_id() {
+	public Integer getLast_visit_id() {
 		return last_visit_id;
 	}
 
-	public void setLast_visit_id(int last_visit_id) {
+	public void setLast_visit_id(Integer last_visit_id) {
 		this.last_visit_id = last_visit_id;
 	}
-
-	public int getTreatment_id() {
-		return treatment_id;
-	}
-
-	public void setTreatment_id(int treatment_id) {
-		this.treatment_id = treatment_id;
-	}
-
-
 }

@@ -8,50 +8,57 @@ package IngDelSw.nicoli.model;
 import IngDelSw.nicoli.model.enums.Gender;
 import IngDelSw.nicoli.model.enums.Role;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
-import javax.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
-@Table (name = "users")
-/**
- *
- */
-public class User {
-	/**
-	 *
-	 */
+@Table (name = "app_user")
+@Inheritance(strategy = InheritanceType.JOINED)
+public class User implements Serializable {
+
+
+	public User(){
+	}
+
+	public User(String firstName, String lastName, String email, String password, Gender gender, Role role, LocalDateTime activatedAt) {
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.email = email;
+		this.password = password;
+		this.gender = gender;
+		this.role = role;
+		this.activatedAt = activatedAt;
+	}
+
+	
 	@Id
-	@Column(name = "id")
-	private int id;
-	/**
-	 *
-	 */
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
+
 	@Column(name = "first_name")
-	private String first_name;
-	/**
-	 *
-	 */
+	private String firstName;
+	
 	@Column(name = "last_name")
-	private String last_name;
-	/**
-	 *
-	 */
+	private String lastName;
+	
+
+	@Column(name = "email")
+	private String email;
+	
+	@Column(name = "password")
+	private String password;
+
+	@Enumerated(EnumType.STRING)
 	@Column(name = "gender")
 	private Gender gender;
-	/**
-	 *
-	 */
-
+	
+	@Enumerated(EnumType.STRING)
 	@Column(name = "role")
 	private Role role;
-	/**
-	 *
-	 */
+	
 	@Column(name = "activated_at")
-	private LocalDateTime activated_at;
+	private LocalDateTime activatedAt;
 
 	/**
 	 * @param role
@@ -59,22 +66,83 @@ public class User {
 	public void hasRole(Role role) {
 	}
 
-	/**
-	 *
-	 */
+	
 	public void isAdmin() {
 	}
 
-	/**
-	 *
-	 */
+	
 	public void isUser() {
 	}
 
-	/**
-	 *
-	 */
+	
 	public void isMedic() {
 	}
+
+
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public void setLastName(String last_name) {
+		this.lastName = last_name;
+	}
+
+	public void setGender(Gender gender) {
+		this.gender = gender;
+	}
+
+	public void setRole(Role role) {
+		this.role = role;
+	}
+
+	public void setActivatedAt(LocalDateTime activated_at) {
+		this.activatedAt = activated_at;
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public Gender getGender() {
+		return gender;
+	}
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public Role getRole() {
+		return role;
+	}
+
+	public LocalDateTime getActivatedAt() {
+		return activatedAt;
+	}
+
 
 }

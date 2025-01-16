@@ -5,58 +5,45 @@
 /************************************************************/
 package IngDelSw.nicoli.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import jakarta.persistence.*;
+
+import java.util.Set;
 
 /**
- *
+ * 
  */
 @Entity
-@Table(name = "products")
-public class Products {
-	/**
-	 *
-	 */
+@Table(name = "product")
+public class Product {
+
 	@Id
-	@Column(name = "product_id")
-	private int product_id;
-	/**
-	 *
-	 */
-	@Column(name = "product_name")
-	private String product_name;
-	/**
-	 *
-	 */
-	@Column(name = "treated_area_id")
-	private int treated_area_id;
+	@Column(name = "id")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
+
+	@Column(name = "name")
+	private String name;
+
 
 	/**
 	 * GETTERS AND SETTERS
 	 */
-	public int getProduct_id() {
-		return product_id;
+	public Integer getId() {
+		return id;
 	}
 
-	public void setProduct_id(int product_id) {
-		this.product_id = product_id;
+	public void setId(Integer productId) {
+		this.id = productId;
 	}
 
-	public String getProduct_name() {
-		return product_name;
+	public String getName() {
+		return name;
 	}
 
-	public void setProduct_name(String product_name) {
-		this.product_name = product_name;
+	public void setName(String productName) {
+		this.name = productName;
 	}
 
-	public int getTreatedarea() {
-		return treated_area_id;
-	}
 
-	public void setTreatedarea(int treatedarea) {
-		this.treated_area_id = treatedarea;
-	}
 }
