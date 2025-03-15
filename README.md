@@ -9,4 +9,4 @@ Nella directory "frontend" eseguire i seguenti comandi:
 - npm i
 - npm run dev
 
-è ora possibile accedere al frontend e utilizzare le api al link http://localhost:5173/
+è possibile accedere al frontend e utilizzare le api al link http://localhost:5173/
