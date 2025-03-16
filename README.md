@@ -14,7 +14,7 @@ The platform allows surgeons to register patients, track their treatment history
   <li>Patient Registration & Management: Store and manage patient details</li>
   <li>Treatment Tracking: Record all aesthetic procedures with relevant details.</li>
   <li>Medical Visits: Schedule and manage patient visits.</li>
-  <li>FPhoto Management: Upload and compare pre- and post-treatment images.</li>
+  <li>Photo Management: Upload and compare pre- and post-treatment images.</li>
 </ul>
 
 ## Technologies Used
