@@ -129,7 +129,7 @@ public class VisitsController {
         }
     }
 
-    @GetMapping("/save")
+    @PostMapping("/save")
     public ResponseEntity<?> saveVisit(@RequestBody SaveVisitRequest saveVisitRequest) {
         try {
             Visit visit = visitService.saveVisit(
